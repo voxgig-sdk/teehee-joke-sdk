@@ -1,0 +1,129 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Teehee Joke API",
+    "description": "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G. Donat. Users can make a GET request to receive a joke along with its ID, question, answer, and a permalink for reference. All jokes are in Question/Answer format and are universally safe for work and generally family friendly.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Jesse G. Donat",
+      "url": "https://teehee.dev/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://teehee.dev/api",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/joke": {
+      "get": {
+        "summary": "Get a random joke",
+        "description": "Retrieves a random joke in Question/Answer format. All jokes are safe for work and family friendly.",
+        "operationId": "getRandomJoke",
+        "responses": {
+          "200": {
+            "description": "Successful response with a random joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Joke"
+                },
+                "example": {
+                  "question": "What does a television have in common with a rabbit?",
+                  "answer": "His ears!",
+                  "id": "tv-rabbit",
+                  "permalink": "https://teehee.dev/api/joke/tv-rabbit",
+                  "permalink_html": "https://teehee.dev/joke/tv-rabbit"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/joke/{id}": {
+      "get": {
+        "summary": "Get a specific joke by ID",
+        "description": "Retrieves a specific joke using its unique identifier",
+        "operationId": "getJokeById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique identifier of the joke",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "tv-rabbit"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with the requested joke",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Joke"
+                },
+                "example": {
+                  "question": "What does a television have in common with a rabbit?",
+                  "answer": "His ears!",
+                  "id": "tv-rabbit",
+                  "permalink": "https://teehee.dev/api/joke/tv-rabbit",
+                  "permalink_html": "https://teehee.dev/joke/tv-rabbit"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Joke not found"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Joke": {
+        "type": "object",
+        "properties": {
+          "question": {
+            "type": "string",
+            "description": "The joke question/setup"
+          },
+          "answer": {
+            "type": "string",
+            "description": "The joke answer/punchline"
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique identifier for the joke"
+          },
+          "permalink": {
+            "type": "string",
+            "format": "uri",
+            "description": "API permalink URL for the joke"
+          },
+          "permalink_html": {
+            "type": "string",
+            "format": "uri",
+            "description": "HTML page permalink URL for the joke"
+          }
+        },
+        "required": [
+          "question",
+          "answer",
+          "id",
+          "permalink",
+          "permalink_html"
+        ]
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Teehee.dev API Documentation",
+    "url": "https://teehee.dev/"
+  }
+}

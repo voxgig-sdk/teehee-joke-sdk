@@ -1,0 +1,24 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Jesse G. Donat"
+        url: "https://teehee.dev/"
+      }
+      description: "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G. Donat. Users can make a GET request to receive a joke along with its ID, question, answer, and a permalink for reference. All jokes are in Question/Answer format and are universally safe for work and generally family friendly."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://teehee.dev/api"
+        }
+      ]
+      title: "Teehee Joke API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

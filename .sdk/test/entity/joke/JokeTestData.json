@@ -1,0 +1,37 @@
+{
+  "existing": {
+    "joke": {
+      "JOKE00": {
+        "answer": "s32",
+        "id": "JOKE00",
+        "permalink": "s34",
+        "permalink_html": "s35",
+        "question": "s36"
+      },
+      "JOKE01": {
+        "answer": "s64",
+        "id": "JOKE01",
+        "permalink": "s66",
+        "permalink_html": "s67",
+        "question": "s68"
+      },
+      "JOKE02": {
+        "answer": "s96",
+        "id": "JOKE02",
+        "permalink": "s98",
+        "permalink_html": "s99",
+        "question": "s9a"
+      }
+    }
+  },
+  "new": {
+    "joke": {
+      "joke_ref01": {
+        "answer": "sc8",
+        "permalink": "sca",
+        "permalink_html": "scb",
+        "question": "scc"
+      }
+    }
+  }
+}
