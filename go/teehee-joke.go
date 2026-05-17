@@ -1,10 +1,10 @@
 package voxgigteeheejokesdk
 
 import (
-	"github.com/voxgig-sdk/teehee-joke-sdk/core"
-	"github.com/voxgig-sdk/teehee-joke-sdk/entity"
-	"github.com/voxgig-sdk/teehee-joke-sdk/feature"
-	_ "github.com/voxgig-sdk/teehee-joke-sdk/utility"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/core"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/entity"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/feature"
+	_ "github.com/voxgig-sdk/teehee-joke-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

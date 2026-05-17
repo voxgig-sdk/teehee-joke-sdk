@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/teehee-joke-sdk/core"
+import "github.com/voxgig-sdk/teehee-joke-sdk/go/core"
 
 func resultHeadersUtil(ctx *core.Context) *core.Result {
 	response := ctx.Response

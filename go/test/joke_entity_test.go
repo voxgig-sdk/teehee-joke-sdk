@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/teehee-joke-sdk"
-	"github.com/voxgig-sdk/teehee-joke-sdk/core"
+	sdk "github.com/voxgig-sdk/teehee-joke-sdk/go"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/teehee-joke-sdk/go/utility/struct"
 )
 
 func TestJokeEntity(t *testing.T) {

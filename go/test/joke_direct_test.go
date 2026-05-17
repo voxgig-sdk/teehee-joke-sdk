@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/teehee-joke-sdk"
-	"github.com/voxgig-sdk/teehee-joke-sdk/core"
+	sdk "github.com/voxgig-sdk/teehee-joke-sdk/go"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/core"
 )
 
 func TestJokeDirect(t *testing.T) {

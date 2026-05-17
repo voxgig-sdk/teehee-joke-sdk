@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/teehee-joke-sdk/core"
+import "github.com/voxgig-sdk/teehee-joke-sdk/go/core"
 
 func makeErrorUtil(ctx *core.Context, err error) (any, error) {
 	if ctx == nil {

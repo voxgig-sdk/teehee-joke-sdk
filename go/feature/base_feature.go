@@ -1,7 +1,7 @@
 package feature
 
 import (
-	"github.com/voxgig-sdk/teehee-joke-sdk/core"
+	"github.com/voxgig-sdk/teehee-joke-sdk/go/core"
 )
 
 type BaseFeature struct {
