@@ -69,14 +69,12 @@ def joke_direct_setup(mockres)
   env = Runner.env_override({
     "TEEHEEJOKE_TEST_JOKE_ENTID" => {},
     "TEEHEEJOKE_TEST_LIVE" => "FALSE",
-    "TEEHEEJOKE_APIKEY" => "NONE",
   })
 
   live = env["TEEHEEJOKE_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
-      "apikey" => env["TEEHEEJOKE_APIKEY"],
     }
     client = TeeheeJokeSDK.new(merged_opts)
     return {

@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'TEEHEEJOKE_TEST_JOKE_ENTID': {},
     'TEEHEEJOKE_TEST_LIVE': 'FALSE',
-    'TEEHEEJOKE_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.TEEHEEJOKE_TEST_LIVE
 
   if (live) {
     const client = new TeeheeJokeSDK({
-      apikey: env.TEEHEEJOKE_APIKEY,
     })
 
     let idmap: any = env['TEEHEEJOKE_TEST_JOKE_ENTID']
