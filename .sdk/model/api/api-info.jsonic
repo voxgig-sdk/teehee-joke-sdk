@@ -17,26 +17,7 @@ main: {
       ]
       title: "Teehee Joke API"
       version: "1.0.0"
-      tagline: "Random SFW question-and-answer jokes curated by Jesse G. Donat"
-      homepage: "https://teehee.dev/"
-      docs_url: "https://teehee.dev/"
-      license_short: "No license specified; use politely and don't abuse the API."
-      license_md: `- No formal license is stated on the homepage.
-- Jokes are curated by [Jesse G. Donat](https://teehee.dev/) — credit the source if you redistribute.
-- The author asks users to "be kind to the API" and not abuse it.`
-      about_md: `Teehee is a small joke API run by [Jesse G. Donat](https://teehee.dev/) (donatj). It serves a hand-curated collection of question-and-answer jokes that has been growing for nearly a decade. All jokes follow the same Q/A format and are kept workplace-appropriate.
-
-What you get from the API:
-
-- A single \`GET /api/joke\` endpoint at \`https://teehee.dev/api\` that returns one random joke as JSON.
-- Fields on each joke include \`id\`, \`question\`, \`answer\`, \`permalink\` (the API URL for that specific joke), and \`permalink_html\` (the web page for it).
-- A browsable web view at \`https://teehee.dev/joke\` for each joke's permalink.
-
-Operational notes: there are no published rate limits, but the author explicitly asks consumers to be kind and not hammer the service. CORS is reported as disabled on the community catalogue page, so browser-side calls may need a proxy.`
-      entity_desc: {
-        joke: "A single SFW Q/A joke with `id`, `question`, `answer`, `permalink`, and `permalink_html` fields, fetched one at a time from `GET /api/joke`."
-      }
-      auth: false
     }
   }
 }
+

@@ -114,6 +114,7 @@ function basicSetup(extra?: any) {
     'TEEHEE_JOKE_TEST_JOKE_ENTID': idmap,
     'TEEHEE_JOKE_TEST_LIVE': 'FALSE',
     'TEEHEE_JOKE_TEST_EXPLAIN': 'FALSE',
+    'TEEHEE_JOKE_APIKEY': 'NONE',
   })
 
   idmap = env['TEEHEE_JOKE_TEST_JOKE_ENTID']
@@ -123,6 +124,7 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new TeeheeJokeSDK(merge([
       {
+        apikey: env.TEEHEE_JOKE_APIKEY,
       },
       extra
     ]))

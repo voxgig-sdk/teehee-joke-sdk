@@ -86,6 +86,7 @@ def joke_basic_setup(extra)
     "TEEHEEJOKE_TEST_JOKE_ENTID" => idmap,
     "TEEHEEJOKE_TEST_LIVE" => "FALSE",
     "TEEHEEJOKE_TEST_EXPLAIN" => "FALSE",
+    "TEEHEEJOKE_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -97,6 +98,7 @@ def joke_basic_setup(extra)
   if env["TEEHEEJOKE_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
+        "apikey" => env["TEEHEEJOKE_APIKEY"],
       },
       extra || {},
     ])

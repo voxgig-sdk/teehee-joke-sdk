@@ -1,20 +1,8 @@
 # TeeheeJoke SDK
 
-Random SFW question-and-answer jokes curated by Jesse G. Donat
+Teehee Joke API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Teehee Joke API
-
-Teehee is a small joke API run by [Jesse G. Donat](https://teehee.dev/) (donatj). It serves a hand-curated collection of question-and-answer jokes that has been growing for nearly a decade. All jokes follow the same Q/A format and are kept workplace-appropriate.
-
-What you get from the API:
-
-- A single `GET /api/joke` endpoint at `https://teehee.dev/api` that returns one random joke as JSON.
-- Fields on each joke include `id`, `question`, `answer`, `permalink` (the API URL for that specific joke), and `permalink_html` (the web page for it).
-- A browsable web view at `https://teehee.dev/joke` for each joke's permalink.
-
-Operational notes: there are no published rate limits, but the author explicitly asks consumers to be kind and not hammer the service. CORS is reported as disabled on the community catalogue page, so browser-side calls may need a proxy.
 
 ## Try it
 
@@ -48,27 +36,31 @@ gem install teehee-joke-sdk
 luarocks install teehee-joke-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { TeeheeJokeSDK } from 'teehee-joke'
 
-const client = new TeeheeJokeSDK({})
+const client = new TeeheeJokeSDK({
+  apikey: process.env.TEEHEE-JOKE_APIKEY,
+})
 
+// Load joke data
+const joke = await client.Joke().load({})
+console.log(joke.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -98,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Joke** | A single SFW Q/A joke with `id`, `question`, `answer`, `permalink`, and `permalink_html` fields, fetched one at a time from `GET /api/joke`. | `/joke/{id}` |
+| **Joke** |  | `/joke/{id}` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -108,15 +100,17 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from teeheejoke_sdk import TeeheeJokeSDK
 
-client = TeeheeJokeSDK({})
+client = TeeheeJokeSDK({
+    "apikey": os.environ.get("TEEHEE-JOKE_APIKEY"),
+})
 
 
 # Load a specific joke
-joke, err = client.Joke(None).load(
-    {"id": "example_id"}, None
-)
+joke, err = client.Joke().load({"id": "example_id"})
+print(joke)
 ```
 
 ### PHP
@@ -125,13 +119,14 @@ joke, err = client.Joke(None).load(
 <?php
 require_once 'teeheejoke_sdk.php';
 
-$client = new TeeheeJokeSDK([]);
+$client = new TeeheeJokeSDK([
+    "apikey" => getenv("TEEHEE-JOKE_APIKEY"),
+]);
 
 
 // Load a specific joke
-[$joke, $err] = $client->Joke(null)->load(
-    ["id" => "example_id"], null
-);
+[$joke, $err] = $client->Joke()->load(["id" => "example_id"]);
+print_r($joke);
 ```
 
 ### Golang
@@ -139,8 +134,13 @@ $client = new TeeheeJokeSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/teehee-joke-sdk/go"
 
-client := sdk.NewTeeheeJokeSDK(map[string]any{})
+client := sdk.NewTeeheeJokeSDK(map[string]any{
+    "apikey": os.Getenv("TEEHEE-JOKE_APIKEY"),
+})
 
+// Load joke data
+joke, err := client.Joke(nil).Load(map[string]any{}, nil)
+fmt.Println(joke)
 ```
 
 ### Ruby
@@ -148,13 +148,14 @@ client := sdk.NewTeeheeJokeSDK(map[string]any{})
 ```ruby
 require_relative "TeeheeJoke_sdk"
 
-client = TeeheeJokeSDK.new({})
+client = TeeheeJokeSDK.new({
+  "apikey" => ENV["TEEHEE-JOKE_APIKEY"],
+})
 
 
 # Load a specific joke
-joke, err = client.Joke(nil).load(
-  { "id" => "example_id" }, nil
-)
+joke, err = client.Joke().load({ "id" => "example_id" })
+puts joke
 ```
 
 ### Lua
@@ -162,13 +163,14 @@ joke, err = client.Joke(nil).load(
 ```lua
 local sdk = require("teehee-joke_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("TEEHEE-JOKE_APIKEY"),
+})
 
 
 -- Load a specific joke
-local joke, err = client:Joke(nil):load(
-  { id = "example_id" }, nil
-)
+local joke, err = client:Joke():load({ id = "example_id" })
+print(joke)
 ```
 
 ## Unit testing in offline mode
@@ -187,25 +189,21 @@ const result = await client.Joke().load({ id: 'test01' })
 ### Python
 
 ```python
-client = TeeheeJokeSDK.test(None, None)
-result, err = client.Joke(None).load(
-    {"id": "test01"}, None
-)
+client = TeeheeJokeSDK.test()
+result, err = client.Joke().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = TeeheeJokeSDK::test(null, null);
-[$result, $err] = $client->Joke(null)->load(
-    ["id" => "test01"], null
-);
+$client = TeeheeJokeSDK::test();
+[$result, $err] = $client->Joke()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Joke(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -214,19 +212,15 @@ result, err := client.Joke(nil).Load(
 ### Ruby
 
 ```ruby
-client = TeeheeJokeSDK.test(nil, nil)
-result, err = client.Joke(nil).load(
-  { "id" => "test01" }, nil
-)
+client = TeeheeJokeSDK.test
+result, err = client.Joke().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Joke(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Joke():load({ id = "test01" })
 ```
 
 ## How it works
@@ -330,14 +324,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Teehee Joke API
-
-- Upstream: [https://teehee.dev/](https://teehee.dev/)
-
-- No formal license is stated on the homepage.
-- Jokes are curated by [Jesse G. Donat](https://teehee.dev/) — credit the source if you redistribute.
-- The author asks users to "be kind to the API" and not abuse it.
 
 ---
 

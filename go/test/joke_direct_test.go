@@ -110,12 +110,14 @@ func jokeDirectSetup(mockres any) *jokeDirectSetupResult {
 	env := envOverride(map[string]any{
 		"TEEHEEJOKE_TEST_JOKE_ENTID": map[string]any{},
 		"TEEHEEJOKE_TEST_LIVE":    "FALSE",
+		"TEEHEEJOKE_APIKEY":       "NONE",
 	})
 
 	live := env["TEEHEEJOKE_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["TEEHEEJOKE_APIKEY"],
 		}
 		client := sdk.NewTeeheeJokeSDK(mergedOpts)
 
