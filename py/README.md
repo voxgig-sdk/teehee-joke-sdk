@@ -10,7 +10,7 @@ The Python SDK for the TeeheeJoke API — an entity-oriented client following Py
 
 ## Install
 ```bash
-pip install teehee-joke-sdk
+pip install voxgig-sdk-teehee-joke
 ```
 
 Or install from source:

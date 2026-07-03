@@ -10,7 +10,7 @@ The TypeScript SDK for the TeeheeJoke API — a type-safe, entity-oriented clien
 
 ## Install
 ```bash
-npm install teehee-joke
+npm install @voxgig-sdk/teehee-joke
 ```
 ## Tutorial: your first API call
 

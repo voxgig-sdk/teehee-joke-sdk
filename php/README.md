@@ -10,7 +10,7 @@ The PHP SDK for the TeeheeJoke API — an entity-oriented client using PHP conve
 
 ## Install
 ```bash
-composer require voxgig/teehee-joke-sdk
+composer require voxgig-sdk/teehee-joke
 ```
 
 

@@ -10,13 +10,13 @@ The Ruby SDK for the TeeheeJoke API — an entity-oriented client using idiomati
 
 ## Install
 ```bash
-gem install teehee-joke-sdk
+gem install voxgig-sdk-teehee-joke
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "teehee-joke-sdk"
+gem "voxgig-sdk-teehee-joke"
 ```
 
 Then run:
