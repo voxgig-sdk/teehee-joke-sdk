@@ -15,9 +15,6 @@ module TeeheeJokeConfig
       },
       "options" => {
         "base" => "https://teehee.dev/api",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },
@@ -82,6 +79,7 @@ module TeeheeJokeConfig
                         "orig" => "id",
                         "reqd" => true,
                         "type" => "`$STRING`",
+                        "index$" => 0,
                       },
                     ],
                   },

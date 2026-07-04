@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `TeeheeJokeSDK.test()`.
 ## JokeEntity
 
 ```ts
-const joke = client.Joke()
+const joke = client.joke
 ```
 
 ### Fields
@@ -130,7 +129,7 @@ const joke = client.Joke()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.Joke().load({ id: 'joke_id' })
+const result = await client.joke.load({ id: 'joke_id' })
 ```
 
 ### Common Methods

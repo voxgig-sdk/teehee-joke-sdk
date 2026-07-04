@@ -9,9 +9,12 @@ The TypeScript SDK for the TeeheeJoke API — a type-safe, entity-oriented clien
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/teehee-joke
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/teehee-joke-sdk/releases](https://github.com/voxgig-sdk/teehee-joke-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TeeheeJokeSDK } from 'teehee-joke'
+import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
 
-const client = new TeeheeJokeSDK({
-  apikey: process.env.TEEHEE-JOKE_APIKEY,
-})
+const client = new TeeheeJokeSDK()
 ```
 
 ### 3. Load a joke
 
 ```ts
-const result = await client.Joke().load({ id: 'example_id' })
+const result = await client.joke.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -79,7 +80,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = TeeheeJokeSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.joke.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -87,7 +88,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new TeeheeJokeSDK({ apikey: '...' })
+const client = new TeeheeJokeSDK()
 const testClient = client.tester()
 ```
 
@@ -96,7 +97,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.joke
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -123,7 +124,6 @@ const logger = {
 }
 
 const client = new TeeheeJokeSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -133,8 +133,7 @@ const client = new TeeheeJokeSDK({
 Create a `.env.local` file at the project root:
 
 ```
-TEEHEE-JOKE_TEST_LIVE=TRUE
-TEEHEE-JOKE_APIKEY=<your-key>
+TEEHEE_JOKE_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -152,7 +151,6 @@ cd ts && npm test
 
 ```ts
 new TeeheeJokeSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -163,7 +161,6 @@ new TeeheeJokeSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -270,7 +267,7 @@ API path: `/joke/{id}`
 
 ### Joke
 
-Create an instance: `const joke = client.Joke()`
+Create an instance: `const joke = client.joke`
 
 #### Operations
 
@@ -291,7 +288,7 @@ Create an instance: `const joke = client.Joke()`
 #### Example: Load
 
 ```ts
-const joke = await client.Joke().load({ id: 'joke_id' })
+const joke = await client.joke.load({ id: 'joke_id' })
 ```
 
 
@@ -352,7 +349,7 @@ teehee-joke/
 Import the SDK from the package root:
 
 ```ts
-import { TeeheeJokeSDK } from 'teehee-joke'
+import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
 ```
 
 ### Entity state
@@ -362,11 +359,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const joke = client.joke
+await joke.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// joke.data() now returns the loaded joke data
+// joke.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

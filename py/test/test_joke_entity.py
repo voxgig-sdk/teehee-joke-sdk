@@ -51,8 +51,7 @@ class TestJokeEntity:
         joke_ref01_match_dt0 = {
             "id": joke_ref01_data["id"],
         }
-        joke_ref01_data_dt0_loaded, err = joke_ref01_ent.load(joke_ref01_match_dt0, None)
-        assert err is None
+        joke_ref01_data_dt0_loaded = joke_ref01_ent.load(joke_ref01_match_dt0, None)
         joke_ref01_data_dt0_load_result = helpers.to_map(joke_ref01_data_dt0_loaded)
         assert joke_ref01_data_dt0_load_result is not None
         assert joke_ref01_data_dt0_load_result["id"] == joke_ref01_data["id"]
@@ -95,7 +94,6 @@ def _joke_basic_setup(extra):
         "TEEHEEJOKE_TEST_JOKE_ENTID": idmap,
         "TEEHEEJOKE_TEST_LIVE": "FALSE",
         "TEEHEEJOKE_TEST_EXPLAIN": "FALSE",
-        "TEEHEEJOKE_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -106,7 +104,6 @@ def _joke_basic_setup(extra):
     if env.get("TEEHEEJOKE_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("TEEHEEJOKE_APIKEY"),
             },
             extra or {},
         ])

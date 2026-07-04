@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Joke,
+  JokeLoadMatch,
+} from '../TeeheeJokeTypes'
 
 // TODO: needs Entity superclass
-class JokeEntity extends TeeheeJokeEntityBase {
+class JokeEntity extends TeeheeJokeEntityBase<Joke> {
 
   constructor(client: TeeheeJokeSDK, entopts: any) {
     super(client, entopts)
@@ -32,7 +36,7 @@ class JokeEntity extends TeeheeJokeEntityBase {
 
 
 
-  async load(this: any, reqmatch?: any, ctrl?: Control) {
+  async load(this: any, reqmatch?: JokeLoadMatch, ctrl?: Control): Promise<Joke> {
 
     const utility = this._utility
 
@@ -136,7 +140,9 @@ class JokeEntity extends TeeheeJokeEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Joke> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

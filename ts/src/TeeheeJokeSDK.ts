@@ -2,6 +2,8 @@
 
 import { JokeEntity } from './entity/JokeEntity'
 
+export type * from './TeeheeJokeTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class TeeheeJokeSDK {
 
 
 
+  _joke?: JokeEntity
+
+  // Idiomatic facade: `client.joke.list()` / `client.joke.load({ id })`.
+  get joke(): JokeEntity {
+    return (this._joke ??= new JokeEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.joke` instead. */
   Joke(data?: any) {
     const self = this
     return new JokeEntity(self,data)

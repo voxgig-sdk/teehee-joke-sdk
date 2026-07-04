@@ -51,8 +51,7 @@ class JokeEntityTest extends TestCase
         $joke_ref01_match_dt0 = [
             "id" => $joke_ref01_data["id"],
         ];
-        [$joke_ref01_data_dt0_loaded, $err] = $joke_ref01_ent->load($joke_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $joke_ref01_data_dt0_loaded = $joke_ref01_ent->load($joke_ref01_match_dt0, null);
         $joke_ref01_data_dt0_load_result = Helpers::to_map($joke_ref01_data_dt0_loaded);
         $this->assertNotNull($joke_ref01_data_dt0_load_result);
         $this->assertEquals($joke_ref01_data_dt0_load_result["id"], $joke_ref01_data["id"]);
@@ -89,7 +88,6 @@ function joke_basic_setup($extra)
         "TEEHEEJOKE_TEST_JOKE_ENTID" => $idmap,
         "TEEHEEJOKE_TEST_LIVE" => "FALSE",
         "TEEHEEJOKE_TEST_EXPLAIN" => "FALSE",
-        "TEEHEEJOKE_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -101,7 +99,6 @@ function joke_basic_setup($extra)
     if ($env["TEEHEEJOKE_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["TEEHEEJOKE_APIKEY"],
             ],
             $extra ?? [],
         ]);

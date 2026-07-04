@@ -245,6 +245,9 @@ func (sdk *TeeheeJokeSDK) Direct(fetchargs map[string]any) (map[string]any, erro
 }
 
 
+// Joke returns a Joke entity bound to this client.
+// Idiomatic usage: client.Joke(nil).List(nil, nil) or
+// client.Joke(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *TeeheeJokeSDK) Joke(data map[string]any) TeeheeJokeEntity {
 	return NewJokeEntityFunc(sdk, data)
 }

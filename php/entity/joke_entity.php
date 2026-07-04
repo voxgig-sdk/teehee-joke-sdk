@@ -55,6 +55,9 @@ class JokeEntity
         return new JokeEntity($this->_client, $opts);
     }
 
+    /**
+     * @param Joke|array $args Joke data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class JokeEntity
         }
     }
 
+    /**
+     * @return Joke|array The current Joke data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of Joke fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class JokeEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of Joke fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -84,7 +96,16 @@ class JokeEntity
     }
 
     
-    public function load($reqmatch, $ctrl = null): array
+    /**
+     * Load a single Joke.
+     *
+     * @param JokeLoadMatch|array|null $reqmatch Match criteria (id/query
+     *   fields) as an assoc-array; a typed JokeLoadMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return Joke|array The loaded Joke as an assoc-array at the
+     *   SDK boundary; throws TeeheeJokeError on failure (item-5 convention).
+     */
+    public function load(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -117,7 +138,7 @@ class JokeEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 
