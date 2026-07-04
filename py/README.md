@@ -33,10 +33,12 @@ client = TeeheeJokeSDK()
 
 ### 3. Load a joke
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.joke.load({"id": "example_id"})
-    print(result)
+    joke = client.Joke().load({"id": "example_id"})
+    print(joke)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -84,8 +86,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = TeeheeJokeSDK.test()
 
-result = client.joke.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+joke = client.Joke().load({"id": "test01"})
+# joke contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -222,7 +225,7 @@ API path: `/joke/{id}`
 
 ### Joke
 
-Create an instance: `const joke = client.joke`
+Create an instance: `joke = client.Joke()`
 
 #### Operations
 
@@ -242,8 +245,8 @@ Create an instance: `const joke = client.joke`
 
 #### Example: Load
 
-```ts
-const joke = await client.joke.load({ id: 'joke_id' })
+```python
+joke = client.Joke().load({"id": "joke_id"})
 ```
 
 
@@ -317,7 +320,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-joke = client.joke
+joke = client.Joke()
 joke.load({"id": "example_id"})
 
 # joke.data_get() now returns the loaded joke data

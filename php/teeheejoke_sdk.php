@@ -233,10 +233,10 @@ class TeeheeJokeSDK
 
     private $_joke = null;
 
-    // Idiomatic facade: $client->joke()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Joke() (PHP method
-    // names are case-insensitive).
-    public function joke($data = null)
+    // Canonical facade: $client->Joke()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->joke()
+    // resolves here too.
+    public function Joke($data = null)
     {
         require_once __DIR__ . '/entity/joke_entity.php';
         if ($data === null) {

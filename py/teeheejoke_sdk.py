@@ -220,25 +220,15 @@ class TeeheeJokeSDK:
         }
 
 
-    @property
-    def joke(self):
-        """Idiomatic facade: client.joke.list() / client.joke.load({"id": ...})."""
-        from entity.joke_entity import JokeEntity
-        cached = getattr(self, "_joke", None)
-        if cached is None:
-            cached = JokeEntity(self, None)
-            self._joke = cached
-        return cached
-
-    def Joke(self, data=None):
-        # Deprecated: use client.joke instead.
+    def Joke(self, data=None) -> "JokeEntity":
+        """Entity factory: client.Joke().list({}) / client.Joke().load({"id": ...})."""
         from entity.joke_entity import JokeEntity
         return JokeEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "TeeheeJokeSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class TeeheeJokeSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.joke_entity import JokeEntity

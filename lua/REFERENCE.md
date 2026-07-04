@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## JokeEntity
 
 ```lua
-local joke = client:joke(nil)
+local joke = client:Joke(nil)
 ```
 
 ### Fields
@@ -103,7 +103,7 @@ local joke = client:joke(nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:joke():load({ id = "joke_id" })
+local result, err = client:Joke():load({ id = "joke_id" })
 ```
 
 ### Common Methods

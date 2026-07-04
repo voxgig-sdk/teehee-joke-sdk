@@ -208,13 +208,7 @@ class TeeheeJokeSDK
   end
 
 
-  # Idiomatic facade: client.joke.list / client.joke.load({ "id" => ... })
-  def joke
-    require_relative 'entity/joke_entity'
-    @joke ||= JokeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.joke instead.
+  # Canonical facade: client.Joke.list / client.Joke.load({ "id" => ... })
   def Joke(data = nil)
     require_relative 'entity/joke_entity'
     JokeEntity.new(self, data)

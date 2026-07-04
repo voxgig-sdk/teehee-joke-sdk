@@ -26,9 +26,9 @@ import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
 
 const client = new TeeheeJokeSDK()
 
-// Load joke data
-const joke = await client.joke.load({})
-console.log(joke.data)
+// Load joke data (returns a Joke)
+const joke = await client.Joke().load()
+console.log(joke)
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -84,8 +84,8 @@ from teeheejoke_sdk import TeeheeJokeSDK
 client = TeeheeJokeSDK()
 
 
-# Load a specific joke
-joke = client.joke.load({"id": "example_id"})
+# Load a specific joke (returns the record, raises on error)
+joke = client.Joke().load({"id": "example_id"})
 print(joke)
 ```
 
@@ -98,8 +98,8 @@ require_once 'teeheejoke_sdk.php';
 $client = new TeeheeJokeSDK();
 
 
-// Load a specific joke
-$joke = $client->joke()->load(["id" => "example_id"]);
+// Load a specific joke (returns the bare record; throws on error)
+$joke = $client->Joke()->load(["id" => "example_id"]);
 print_r($joke);
 ```
 
@@ -123,8 +123,8 @@ require_relative "TeeheeJoke_sdk"
 client = TeeheeJokeSDK.new
 
 
-# Load a specific joke
-joke = client.joke.load({ "id" => "example_id" })
+# Load a specific joke (returns the bare record; raises on error)
+joke = client.Joke.load({ "id" => "example_id" })
 puts joke
 ```
 
@@ -137,7 +137,7 @@ local client = sdk.new()
 
 
 -- Load a specific joke
-local joke, err = client:joke():load({ id = "example_id" })
+local joke, err = client:Joke():load({ id = "example_id" })
 print(joke)
 ```
 
@@ -150,22 +150,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = TeeheeJokeSDK.test()
-const result = await client.joke.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const joke = await client.Joke().load({ id: 'test01' })
+// joke is a bare Joke populated with mock data
+console.log(joke)
 ```
 
 ### Python
 
 ```python
 client = TeeheeJokeSDK.test()
-result = client.joke.load({"id": "test01"})
+joke = client.Joke().load({"id": "test01"})
+print(joke)
 ```
 
 ### PHP
 
 ```php
-$client = TeeheeJokeSDK::test();
-$result = $client->joke()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = TeeheeJokeSDK::test([
+    "entity" => ["joke" => ["test01" => ["id" => "test01"]]],
+]);
+$joke = $client->Joke()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -180,15 +185,18 @@ result, err := client.Joke(nil).Load(
 ### Ruby
 
 ```ruby
-client = TeeheeJokeSDK.test
-result = client.joke.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = TeeheeJokeSDK.test({
+  "entity" => { "joke" => { "test01" => { "id" => "test01" } } },
+})
+joke = client.Joke.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:joke():load({ id = "test01" })
+local result, err = client:Joke():load({ id = "test01" })
 ```
 
 ## How it works
@@ -236,6 +244,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

@@ -109,7 +109,7 @@ Alias for `TeeheeJokeSDK.test()`.
 ## JokeEntity
 
 ```ts
-const joke = client.joke
+const joke = client.Joke()
 ```
 
 ### Fields
@@ -129,7 +129,7 @@ const joke = client.joke
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.joke.load({ id: 'joke_id' })
+const result = await client.Joke().load({ id: 'joke_id' })
 ```
 
 ### Common Methods

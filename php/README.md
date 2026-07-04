@@ -33,9 +33,10 @@ $client = new TeeheeJokeSDK();
 
 ```php
 try {
-    $result = $client->joke()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Joke record (throws on error).
+    $joke = $client->Joke()->load(["id" => "example_id"]);
+    print_r($joke);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -81,13 +82,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = TeeheeJokeSDK::test();
+$client = TeeheeJokeSDK::test([
+    "entity" => ["joke" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->joke()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$joke = $client->Joke()->load(["id" => "test01"]);
+print_r($joke);
 ```
 
 ### Use a custom fetch function
@@ -227,7 +232,7 @@ API path: `/joke/{id}`
 
 ### Joke
 
-Create an instance: `const joke = client.joke`
+Create an instance: `$joke = $client->Joke();`
 
 #### Operations
 
@@ -247,8 +252,9 @@ Create an instance: `const joke = client.joke`
 
 #### Example: Load
 
-```ts
-const joke = await client.joke.load({ id: 'joke_id' })
+```php
+// load() returns the bare Joke record (throws on error).
+$joke = $client->Joke()->load(["id" => "joke_id"]);
 ```
 
 
@@ -323,7 +329,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$joke = $client->joke();
+$joke = $client->Joke();
 $joke->load(["id" => "example_id"]);
 
 // $joke->dataGet() now returns the loaded joke data

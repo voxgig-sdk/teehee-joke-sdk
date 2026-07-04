@@ -204,14 +204,7 @@ class TeeheeJokeSDK {
 
 
 
-  _joke?: JokeEntity
-
-  // Idiomatic facade: `client.joke.list()` / `client.joke.load({ id })`.
-  get joke(): JokeEntity {
-    return (this._joke ??= new JokeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.joke` instead. */
+  // Entity access: `client.Joke().list()` / `client.Joke().load({ id })`.
   Joke(data?: any) {
     const self = this
     return new JokeEntity(self,data)
