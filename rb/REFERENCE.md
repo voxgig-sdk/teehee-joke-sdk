@@ -8,7 +8,7 @@ Complete API reference for the TeeheeJoke Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'teehee-joke_sdk'
+require_relative 'TeeheeJoke_sdk'
 
 client = TeeheeJokeSDK.new(options)
 ```
@@ -93,11 +93,11 @@ joke = client.Joke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `permalink` | ``$STRING`` | Yes |  |
-| `permalink_html` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
+| `answer` | `String` | Yes |  |
+| `id` | `String` | Yes |  |
+| `permalink` | `String` | Yes |  |
+| `permalink_html` | `String` | Yes |  |
+| `question` | `String` | Yes |  |
 
 ### Operations
 

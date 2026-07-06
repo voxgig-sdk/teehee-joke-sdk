@@ -221,7 +221,7 @@ class TeeheeJokeSDK:
 
 
     def Joke(self, data=None) -> "JokeEntity":
-        """Entity factory: client.Joke().list({}) / client.Joke().load({"id": ...})."""
+        """Entity factory: client.Joke().list() / client.Joke().load({"id": ...})."""
         from entity.joke_entity import JokeEntity
         return JokeEntity(self, data)
 

@@ -8,7 +8,7 @@ Complete API reference for the TeeheeJoke PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/teehee-joke_sdk.php';
+require_once __DIR__ . '/teeheejoke_sdk.php';
 
 $client = new TeeheeJokeSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = TeeheeJokeSDK::test();
 
 Create a new `JokeEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): TeeheeJokeUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,11 +92,11 @@ $joke = $client->Joke();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `permalink` | ``$STRING`` | Yes |  |
-| `permalink_html` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
+| `answer` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `permalink` | `string` | Yes |  |
+| `permalink_html` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
 
 ### Operations
 
@@ -110,19 +110,19 @@ $result = $client->Joke()->load(["id" => "joke_id"]);
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -131,7 +131,7 @@ Set the entity match criteria.
 Create a new `JokeEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

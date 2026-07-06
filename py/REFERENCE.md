@@ -8,7 +8,7 @@ Complete API reference for the TeeheeJoke Python SDK.
 ### Constructor
 
 ```python
-from teehee-joke_sdk import TeeheeJokeSDK
+from teeheejoke_sdk import TeeheeJokeSDK
 
 client = TeeheeJokeSDK(options)
 ```
@@ -87,11 +87,11 @@ joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `permalink` | ``$STRING`` | Yes |  |
-| `permalink_html` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
+| `answer` | `str` | Yes |  |
+| `id` | `str` | Yes |  |
+| `permalink` | `str` | Yes |  |
+| `permalink_html` | `str` | Yes |  |
+| `question` | `str` | Yes |  |
 
 ### Operations
 

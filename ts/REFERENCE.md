@@ -116,11 +116,11 @@ const joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | ``$STRING`` | Yes |  |
-| `id` | ``$STRING`` | Yes |  |
-| `permalink` | ``$STRING`` | Yes |  |
-| `permalink_html` | ``$STRING`` | Yes |  |
-| `question` | ``$STRING`` | Yes |  |
+| `answer` | `string` | Yes |  |
+| `id` | `string` | Yes |  |
+| `permalink` | `string` | Yes |  |
+| `permalink_html` | `string` | Yes |  |
+| `question` | `string` | Yes |  |
 
 ### Operations
 
