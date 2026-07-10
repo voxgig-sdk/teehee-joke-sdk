@@ -51,7 +51,7 @@ func main() {
     client := sdk.New()
 
     // Load a single joke — the value is the loaded record.
-    joke, err := client.Joke(nil).Load(map[string]any{"id": "example"}, nil)
+    joke, err := client.Joke(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }

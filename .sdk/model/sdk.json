@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -254,14 +251,17 @@
           "url": "https://teehee.dev/"
         },
         "description": "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G. Donat. Users can make a GET request to receive a joke along with its ID, question, answer, and a permalink for reference. All jokes are in Question/Answer format and are universally safe for work and generally family friendly.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://teehee.dev/api"
           }
         ],
+        "summary": "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G.",
         "title": "Teehee Joke API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://teehee.dev/"
       },
       "option": {},
       "target": {
@@ -314,6 +314,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -364,6 +367,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

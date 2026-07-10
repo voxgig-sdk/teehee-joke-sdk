@@ -14,6 +14,6 @@ export interface Joke {
 }
 
 export interface JokeLoadMatch {
-  id: string
+  id?: string
 }
 

@@ -16,9 +16,9 @@ main: {
           url: "https://teehee.dev/api"
         }
       ]
+      summary: "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G."
       title: "Teehee Joke API"
       version: "1.0.0"
+      website: "https://teehee.dev/"
     }
   }
-}
-

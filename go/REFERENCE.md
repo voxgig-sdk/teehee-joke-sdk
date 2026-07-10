@@ -91,6 +91,7 @@ same parameters as `Direct()`.
 
 ```go
 joke := client.Joke(nil)
+fmt.Println(joke.GetName()) // "joke"
 ```
 
 ### Fields
@@ -111,6 +112,10 @@ Load a single entity matching the given criteria.
 
 ```go
 result, err := client.Joke(nil).Load(map[string]any{"id": "joke_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(result)
 ```
 
 ### Common Methods

@@ -14,7 +14,7 @@
 ---@field question string
 
 ---@class JokeLoadMatch
----@field id string
+---@field id? string
 
 local M = {}
 
