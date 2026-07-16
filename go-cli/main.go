@@ -27,7 +27,20 @@ func main() {
 }
 
 func run(args []string, in io.Reader, out, errOut io.Writer) int {
-	client := sdk.NewTeeheeJokeSDK(nil)
+	// Configure from the environment: TEEHEE_JOKE_APIKEY carries the API key and
+	// TEEHEE_JOKE_BASE optionally overrides the API base URL (e.g. production).
+	// Both injectable by a secrets vault. Unset -> nil config defaults.
+	var opts map[string]any
+	if apikey := os.Getenv("TEEHEE_JOKE_APIKEY"); apikey != "" {
+		opts = map[string]any{"apikey": apikey}
+	}
+	if base := os.Getenv("TEEHEE_JOKE_BASE"); base != "" {
+		if opts == nil {
+			opts = map[string]any{}
+		}
+		opts["base"] = base
+	}
+	client := sdk.NewTeeheeJokeSDK(opts)
 
 	r, err := eng.NewRegistry()
 	if err != nil {
