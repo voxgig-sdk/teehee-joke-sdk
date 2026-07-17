@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- TeeheeJoke SDK exists test
 
 local sdk = require("teehee-joke_sdk")
 
