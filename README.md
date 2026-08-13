@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = TeeheeJokeSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = TeeheeJokeSDK.test({
+  entity: {
+    joke: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const joke = await client.Joke().load({ id: 'test01' })
-// joke is a bare Joke populated with mock data
+// joke is the Joke entity, populated with mock data
+// — call joke.data() for the record itself
 console.log(joke)
 ```
 
@@ -182,7 +191,7 @@ require_once 'teeheejoke_sdk.php';
 $client = new TeeheeJokeSDK();
 
 
-// Load a specific joke (returns the bare record; throws on error)
+// Load a specific joke (returns the ENTITY; call data_get() for the record; throws on error)
 $joke = $client->Joke()->load(["id" => "example_id"]);
 print_r($joke);
 ```
@@ -210,7 +219,7 @@ require_relative "TeeheeJoke_sdk"
 client = TeeheeJokeSDK.new
 
 
-# Load a specific joke (returns the bare record; raises on error)
+# Load a specific joke (returns the ENTITY; call data_get for the record)
 joke = client.Joke.load({ "id" => "example_id" })
 puts joke
 ```
@@ -344,6 +353,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://teehee.dev/](https://teehee.dev/)
 

@@ -48,7 +48,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local joke, err = client:Joke():load({ id = "example_id" })
+local joke, err = client:Joke():load()
 if err then error(err) end
 ```
 
@@ -344,7 +344,7 @@ stores the returned data and match criteria internally.
 
 ```lua
 local joke = client:Joke()
-joke:load({ id = "example_id" })
+joke:load()
 
 -- joke:data_get() now returns the joke data from the last load
 -- joke:match_get() returns the last match criteria

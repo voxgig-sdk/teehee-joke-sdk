@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# TeeheeJoke SDK exists test
 
 import pytest
 from teeheejoke_sdk import TeeheeJokeSDK

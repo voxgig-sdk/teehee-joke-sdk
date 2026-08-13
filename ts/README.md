@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const joke = await client.Joke().load({ id: "example_id" })
+  const joke = await client.Joke().load()
   console.log(joke)
 } catch (err) {
   console.error('load failed:', err)
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 const client = TeeheeJokeSDK.test()
 
 const joke = await client.Joke().load({ id: 'test01' })
-// joke is a bare entity populated with mock response data
+// joke is the entity, populated with mock response data
+// — call joke.data() for the record itself
 console.log(joke)
 ```
 
@@ -396,7 +397,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const joke = client.Joke()
-await joke.load({ id: "example_id" })
+await joke.load()
 
 // joke.data() now returns the joke data from the last `load`
 // joke.match() returns { id: "example_id" }

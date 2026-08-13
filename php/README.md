@@ -35,7 +35,7 @@ $client = new TeeheeJokeSDK();
 
 ```php
 try {
-    // load() returns the bare Joke record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Joke record (throws on error).
     $joke = $client->Joke()->load(["id" => "example_id"]);
     print_r($joke);
 } catch (\Throwable $err) {
@@ -51,7 +51,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $joke = $client->Joke()->load(["id" => "example_id"]);
+    $joke = $client->Joke()->load();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -126,7 +126,8 @@ $client = TeeheeJokeSDK::test([
     "entity" => ["joke" => ["test01" => ["id" => "test01"]]],
 ]);
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $joke = $client->Joke()->load(["id" => "test01"]);
 print_r($joke);
 ```
@@ -225,7 +226,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -285,7 +286,7 @@ Create an instance: `$joke = $client->Joke();`
 #### Example: Load
 
 ```php
-// load() returns the bare Joke record (throws on error).
+// load() returns the ENTITY — call data_get() for the Joke record (throws on error).
 $joke = $client->Joke()->load(["id" => "joke_id"]);
 ```
 
@@ -367,7 +368,7 @@ stores the returned data and match criteria internally.
 
 ```php
 $joke = $client->Joke();
-$joke->load(["id" => "example_id"]);
+$joke->load();
 
 // $joke->data_get() now returns the joke data from the last load
 // $joke->match_get() returns the last match criteria

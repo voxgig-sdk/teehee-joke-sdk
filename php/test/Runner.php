@@ -43,8 +43,8 @@ class TeeheeJokeTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('TEEHEEJOKE_TEST_LIVE');
-        $override = self::getenv('TEEHEEJOKE_TEST_OVERRIDE');
+        $live = self::getenv('TEEHEE_JOKE_TEST_LIVE');
+        $override = self::getenv('TEEHEE_JOKE_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class TeeheeJokeTestRunner
             }
         }
 
-        $explain = self::getenv('TEEHEEJOKE_TEST_EXPLAIN');
+        $explain = self::getenv('TEEHEE_JOKE_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['TEEHEEJOKE_TEST_EXPLAIN'] = $explain;
+            $m['TEEHEE_JOKE_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

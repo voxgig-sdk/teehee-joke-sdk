@@ -23,6 +23,7 @@ require_once __DIR__ . '/MakeUrl.php';
 require_once __DIR__ . '/Param.php';
 require_once __DIR__ . '/PrepareAuth.php';
 require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/Graphql.php';
 require_once __DIR__ . '/PrepareHeaders.php';
 require_once __DIR__ . '/PrepareMethod.php';
 require_once __DIR__ . '/PrepareParams.php';
@@ -59,6 +60,8 @@ TeeheeJokeUtility::setRegistrar(function (TeeheeJokeUtility $u): void {
     $u->prepare_params = [TeeheeJokePrepareParams::class, 'call'];
     $u->prepare_path = [TeeheeJokePreparePath::class, 'call'];
     $u->prepare_query = [TeeheeJokePrepareQuery::class, 'call'];
+    $u->graphql_body = [TeeheeJokeGraphql::class, 'body'];
+    $u->graphql_errors = [TeeheeJokeGraphql::class, 'errors'];
     $u->result_basic = [TeeheeJokeResultBasic::class, 'call'];
     $u->result_body = [TeeheeJokeResultBody::class, 'call'];
     $u->result_headers = [TeeheeJokeResultHeaders::class, 'call'];

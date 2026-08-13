@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from teeheejoke_sdk.utility.voxgig_struct import voxgig_struct as vs
 from teeheejoke_sdk import TeeheeJokeSDK
-from core import helpers
+from teeheejoke_sdk.core import helpers
 from test import runner
 
 
@@ -63,11 +63,11 @@ def _joke_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "TEEHEEJOKE_TEST_JOKE_ENTID": {},
-        "TEEHEEJOKE_TEST_LIVE": "FALSE",
+        "TEEHEE_JOKE_TEST_JOKE_ENTID": {},
+        "TEEHEE_JOKE_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("TEEHEEJOKE_TEST_LIVE") == "TRUE"
+    live = env.get("TEEHEE_JOKE_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

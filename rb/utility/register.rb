@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ TeeheeJokeUtility.registrar = ->(u) {
   u.prepare_params = TeeheeJokeUtilities::PrepareParams
   u.prepare_path = TeeheeJokeUtilities::PreparePath
   u.prepare_query = TeeheeJokeUtilities::PrepareQuery
+  u.graphql_body = TeeheeJokeUtilities::GraphqlBody
+  u.graphql_errors = TeeheeJokeUtilities::GraphqlErrors
   u.result_basic = TeeheeJokeUtilities::ResultBasic
   u.result_body = TeeheeJokeUtilities::ResultBody
   u.result_headers = TeeheeJokeUtilities::ResultHeaders

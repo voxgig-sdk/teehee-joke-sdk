@@ -68,11 +68,11 @@ function joke_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["TEEHEEJOKE_TEST_JOKE_ENTID"] = {},
-    ["TEEHEEJOKE_TEST_LIVE"] = "FALSE",
+    ["TEEHEE_JOKE_TEST_JOKE_ENTID"] = {},
+    ["TEEHEE_JOKE_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["TEEHEEJOKE_TEST_LIVE"] == "TRUE"
+  local live = env["TEEHEE_JOKE_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

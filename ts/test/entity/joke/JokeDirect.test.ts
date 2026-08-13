@@ -19,11 +19,15 @@ import {
 describe('JokeDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when TEEHEEJOKE_TEST_LIVE=TRUE.
-  afterEach(liveDelay('TEEHEEJOKE_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when TEEHEE_JOKE_TEST_LIVE=TRUE.
+  afterEach(liveDelay('TEEHEE_JOKE_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new TeeheeJokeSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -77,17 +81,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'TEEHEEJOKE_TEST_JOKE_ENTID': {},
-    'TEEHEEJOKE_TEST_LIVE': 'FALSE',
+    'TEEHEE_JOKE_TEST_JOKE_ENTID': {},
+    'TEEHEE_JOKE_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.TEEHEEJOKE_TEST_LIVE
+  const live = 'TRUE' === env.TEEHEE_JOKE_TEST_LIVE
 
   if (live) {
     const client = new TeeheeJokeSDK({
     })
 
-    let idmap: any = env['TEEHEEJOKE_TEST_JOKE_ENTID']
+    let idmap: any = env['TEEHEE_JOKE_TEST_JOKE_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

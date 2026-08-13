@@ -88,6 +88,7 @@ class TeeheeJokeConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/joke/{id}',
                   'parts' => [
@@ -108,6 +109,7 @@ class TeeheeJokeConfig
                 [
                   'active' => true,
                   'args' => [],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/joke',
                   'parts' => [

@@ -14,12 +14,12 @@ from __future__ import annotations
 
 from urllib.parse import quote
 
-from config import make_config
-from features import _make_feature
-from core.control import TeeheeJokeControl
-from core.error import TeeheeJokeError
-from core.result import TeeheeJokeResult
-from core.spec import TeeheeJokeSpec
+from teeheejoke_sdk.config import make_config
+from teeheejoke_sdk.features import _make_feature
+from teeheejoke_sdk.core.control import TeeheeJokeControl
+from teeheejoke_sdk.core.error import TeeheeJokeError
+from teeheejoke_sdk.core.result import TeeheeJokeResult
+from teeheejoke_sdk.core.spec import TeeheeJokeSpec
 
 
 # True when this SDK was generated with the named feature.

@@ -83,6 +83,7 @@ module TeeheeJokeConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/joke/{id}",
                   "parts" => [
@@ -103,6 +104,7 @@ module TeeheeJokeConfig
                 {
                   "active" => true,
                   "args" => {},
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/joke",
                   "parts" => [

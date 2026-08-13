@@ -16,11 +16,11 @@
 import pytest
 
 from teeheejoke_sdk import TeeheeJokeSDK
-from core.error import TeeheeJokeError
-from core.result import TeeheeJokeResult
-from core.response import TeeheeJokeResponse
-from core.spec import TeeheeJokeSpec
-from feature.base_feature import TeeheeJokeBaseFeature
+from teeheejoke_sdk.core.error import TeeheeJokeError
+from teeheejoke_sdk.core.result import TeeheeJokeResult
+from teeheejoke_sdk.core.response import TeeheeJokeResponse
+from teeheejoke_sdk.core.spec import TeeheeJokeSpec
+from teeheejoke_sdk.feature.base_feature import TeeheeJokeBaseFeature
 
 
 def _client():
