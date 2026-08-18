@@ -28,7 +28,7 @@ class TeeheeJokeSDK
     utility = TeeheeJokeUtility.new
     @_utility = utility
 
-    config = TeeheeJokeConfig.make_config
+    config = TeeheeJokeConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,

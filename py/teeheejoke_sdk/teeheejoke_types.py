@@ -24,5 +24,5 @@ class Joke(TypedDict):
     question: str
 
 
-class JokeLoadMatch(TypedDict, total=False):
+class JokeLoadMatch(TypedDict):
     id: str

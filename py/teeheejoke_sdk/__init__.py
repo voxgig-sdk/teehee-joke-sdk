@@ -23,8 +23,8 @@ class TeeheeJokeSDK:
         utility = TeeheeJokeUtility()
         self._utility = utility
 
-        from teeheejoke_sdk.config import make_config
-        config = make_config()
+        from teeheejoke_sdk.config import shared_config
+        config = shared_config()
 
         self._rootctx = utility.make_context({
             "client": self,

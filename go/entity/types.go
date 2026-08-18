@@ -23,7 +23,7 @@ type Joke struct {
 
 // JokeLoadMatch is the typed request payload for Joke.LoadTyped.
 type JokeLoadMatch struct {
-	Id *string `json:"id,omitempty"`
+	Id string `json:"id"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

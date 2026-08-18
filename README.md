@@ -23,7 +23,7 @@ support (`load`):
 
 ```ts
 const client = new TeeheeJokeSDK()
-const joke = await client.Joke().load()
+const joke = await client.Joke().load({ id: "example_id" })
 ```
 
 Thinking in entities keeps the mental model small — for people and AI agents alike —

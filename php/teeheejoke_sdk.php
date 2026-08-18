@@ -40,7 +40,7 @@ class TeeheeJokeSDK
         $utility = new TeeheeJokeUtility();
         $this->_utility = $utility;
 
-        $config = TeeheeJokeConfig::make_config();
+        $config = TeeheeJokeConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

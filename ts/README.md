@@ -53,7 +53,7 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const joke = await client.Joke().load()
+  const joke = await client.Joke().load({ id: "example_id" })
   console.log(joke)
 } catch (err) {
   console.error('load failed:', err)
@@ -397,7 +397,7 @@ calls on the same instance can rely on this state.
 
 ```ts
 const joke = client.Joke()
-await joke.load()
+await joke.load({ id: "example_id" })
 
 // joke.data() now returns the joke data from the last `load`
 // joke.match() returns { id: "example_id" }

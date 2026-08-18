@@ -15,7 +15,7 @@ require_relative "../TeeheeJoke_sdk"
 module TeeheeJokeFeatureHarness
   # True when this SDK was generated with the named feature.
   def self.has_feature?(name)
-    f = TeeheeJokeConfig.make_config["feature"]
+    f = TeeheeJokeConfig.shared_config["feature"]
     f.is_a?(Hash) && !f[name].nil?
   end
 

@@ -49,7 +49,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  joke = client.Joke.load()
+  joke = client.Joke.load({ "id" => "example_id" })
 rescue => err
   warn "load failed: #{err}"
 end
@@ -358,7 +358,7 @@ stores the returned data and match criteria internally.
 
 ```ruby
 joke = client.Joke
-joke.load()
+joke.load({ "id" => "example_id" })
 
 # joke.data_get now returns the joke data from the last load
 # joke.match_get returns the last match criteria
