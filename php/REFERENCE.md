@@ -92,11 +92,11 @@ $joke = $client->Joke();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | `string` | Yes |  |
-| `id` | `string` | Yes |  |
-| `permalink` | `string` | Yes |  |
-| `permalink_html` | `string` | Yes |  |
-| `question` | `string` | Yes |  |
+| `answer` | `string` | Yes | The joke answer/punchline |
+| `id` | `string` | Yes | Unique identifier for the joke |
+| `permalink` | `string` | Yes | API permalink URL for the joke |
+| `permalink_html` | `string` | Yes | HTML page permalink URL for the joke |
+| `question` | `string` | Yes | The joke question/setup |
 
 ### Operations
 

@@ -87,11 +87,11 @@ joke = client.Joke()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | `str` | Yes |  |
-| `id` | `str` | Yes |  |
-| `permalink` | `str` | Yes |  |
-| `permalink_html` | `str` | Yes |  |
-| `question` | `str` | Yes |  |
+| `answer` | `str` | Yes | The joke answer/punchline |
+| `id` | `str` | Yes | Unique identifier for the joke |
+| `permalink` | `str` | Yes | API permalink URL for the joke |
+| `permalink_html` | `str` | Yes | HTML page permalink URL for the joke |
+| `question` | `str` | Yes | The joke question/setup |
 
 ### Operations
 

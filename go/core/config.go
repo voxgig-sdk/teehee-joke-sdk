@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "TeeheeJoke",
+			"slug": "teehee-joke",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -34,26 +37,31 @@ func MakeConfig() map[string]any {
 					map[string]any{
 						"name": "answer",
 						"req": true,
+						"short": "The joke answer/punchline",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
 						"req": true,
+						"short": "Unique identifier for the joke",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permalink",
 						"req": true,
+						"short": "API permalink URL for the joke",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "permalink_html",
 						"req": true,
+						"short": "HTML page permalink URL for the joke",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "question",
 						"req": true,
+						"short": "The joke question/setup",
 						"type": "`$STRING`",
 					},
 				},

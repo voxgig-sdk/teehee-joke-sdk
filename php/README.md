@@ -248,11 +248,11 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `id` |  |
-| `permalink` |  |
-| `permalink_html` |  |
-| `question` |  |
+| `answer` | The joke answer/punchline |
+| `id` | Unique identifier for the joke |
+| `permalink` | API permalink URL for the joke |
+| `permalink_html` | HTML page permalink URL for the joke |
+| `question` | The joke question/setup |
 
 Operations: Load.
 
@@ -277,11 +277,11 @@ Create an instance: `$joke = $client->Joke();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `id` | `string` |  |
-| `permalink` | `string` |  |
-| `permalink_html` | `string` |  |
-| `question` | `string` |  |
+| `answer` | `string` | The joke answer/punchline |
+| `id` | `string` | Unique identifier for the joke |
+| `permalink` | `string` | API permalink URL for the joke |
+| `permalink_html` | `string` | HTML page permalink URL for the joke |
+| `question` | `string` | The joke question/setup |
 
 #### Example: Load
 

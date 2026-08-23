@@ -19,6 +19,9 @@ module TeeheeJokeConfig
     {
       "main" => {
         "name" => "TeeheeJoke",
+        "slug" => "teehee-joke",
+        "version" => "0.0.1",
+        "target" => "rb",
       },
       "feature" => {
         "test" => {
@@ -42,26 +45,31 @@ module TeeheeJokeConfig
             {
               "name" => "answer",
               "req" => true,
+              "short" => "The joke answer/punchline",
               "type" => "`$STRING`",
             },
             {
               "name" => "id",
               "req" => true,
+              "short" => "Unique identifier for the joke",
               "type" => "`$STRING`",
             },
             {
               "name" => "permalink",
               "req" => true,
+              "short" => "API permalink URL for the joke",
               "type" => "`$STRING`",
             },
             {
               "name" => "permalink_html",
               "req" => true,
+              "short" => "HTML page permalink URL for the joke",
               "type" => "`$STRING`",
             },
             {
               "name" => "question",
               "req" => true,
+              "short" => "The joke question/setup",
               "type" => "`$STRING`",
             },
           ],

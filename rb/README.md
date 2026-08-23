@@ -238,11 +238,11 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `id` |  |
-| `permalink` |  |
-| `permalink_html` |  |
-| `question` |  |
+| `answer` | The joke answer/punchline |
+| `id` | Unique identifier for the joke |
+| `permalink` | API permalink URL for the joke |
+| `permalink_html` | HTML page permalink URL for the joke |
+| `question` | The joke question/setup |
 
 Operations: Load.
 
@@ -267,11 +267,11 @@ Create an instance: `joke = client.Joke`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `String` |  |
-| `id` | `String` |  |
-| `permalink` | `String` |  |
-| `permalink_html` | `String` |  |
-| `question` | `String` |  |
+| `answer` | `String` | The joke answer/punchline |
+| `id` | `String` | Unique identifier for the joke |
+| `permalink` | `String` | API permalink URL for the joke |
+| `permalink_html` | `String` | HTML page permalink URL for the joke |
+| `question` | `String` | The joke question/setup |
 
 #### Example: Load
 

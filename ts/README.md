@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -285,11 +285,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `id` |  |
-| `permalink` |  |
-| `permalink_html` |  |
-| `question` |  |
+| `answer` | The joke answer/punchline |
+| `id` | Unique identifier for the joke |
+| `permalink` | API permalink URL for the joke |
+| `permalink_html` | HTML page permalink URL for the joke |
+| `question` | The joke question/setup |
 
 Operations: load.
 
@@ -314,11 +314,11 @@ Create an instance: `const joke = client.Joke()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `string` |  |
-| `id` | `string` |  |
-| `permalink` | `string` |  |
-| `permalink_html` | `string` |  |
-| `question` | `string` |  |
+| `answer` | `string` | The joke answer/punchline |
+| `id` | `string` | Unique identifier for the joke |
+| `permalink` | `string` | API permalink URL for the joke |
+| `permalink_html` | `string` | HTML page permalink URL for the joke |
+| `question` | `string` | The joke question/setup |
 
 #### Example: Load
 

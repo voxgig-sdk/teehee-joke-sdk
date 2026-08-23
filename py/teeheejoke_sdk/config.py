@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "TeeheeJoke",
+            "slug": "teehee-joke",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -51,26 +54,31 @@ def make_config():
           {
             "name": "answer",
             "req": True,
+            "short": "The joke answer/punchline",
             "type": "`$STRING`",
           },
           {
             "name": "id",
             "req": True,
+            "short": "Unique identifier for the joke",
             "type": "`$STRING`",
           },
           {
             "name": "permalink",
             "req": True,
+            "short": "API permalink URL for the joke",
             "type": "`$STRING`",
           },
           {
             "name": "permalink_html",
             "req": True,
+            "short": "HTML page permalink URL for the joke",
             "type": "`$STRING`",
           },
           {
             "name": "question",
             "req": True,
+            "short": "The joke question/setup",
             "type": "`$STRING`",
           },
         ],

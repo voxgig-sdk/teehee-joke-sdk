@@ -241,11 +241,11 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `answer` |  |
-| `id` |  |
-| `permalink` |  |
-| `permalink_html` |  |
-| `question` |  |
+| `answer` | The joke answer/punchline |
+| `id` | Unique identifier for the joke |
+| `permalink` | API permalink URL for the joke |
+| `permalink_html` | HTML page permalink URL for the joke |
+| `question` | The joke question/setup |
 
 Operations: Load.
 
@@ -270,11 +270,11 @@ Create an instance: `joke = client.Joke()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `answer` | `str` |  |
-| `id` | `str` |  |
-| `permalink` | `str` |  |
-| `permalink_html` | `str` |  |
-| `question` | `str` |  |
+| `answer` | `str` | The joke answer/punchline |
+| `id` | `str` | Unique identifier for the joke |
+| `permalink` | `str` | API permalink URL for the joke |
+| `permalink_html` | `str` | HTML page permalink URL for the joke |
+| `question` | `str` | The joke question/setup |
 
 #### Example: Load
 

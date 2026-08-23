@@ -93,11 +93,11 @@ joke = client.Joke
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `answer` | `String` | Yes |  |
-| `id` | `String` | Yes |  |
-| `permalink` | `String` | Yes |  |
-| `permalink_html` | `String` | Yes |  |
-| `question` | `String` | Yes |  |
+| `answer` | `String` | Yes | The joke answer/punchline |
+| `id` | `String` | Yes | Unique identifier for the joke |
+| `permalink` | `String` | Yes | API permalink URL for the joke |
+| `permalink_html` | `String` | Yes | HTML page permalink URL for the joke |
+| `question` | `String` | Yes | The joke question/setup |
 
 ### Operations
 

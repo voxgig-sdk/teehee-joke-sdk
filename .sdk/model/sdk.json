@@ -36,30 +36,35 @@
               "active": true,
               "name": "answer",
               "req": true,
+              "short": "The joke answer/punchline",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "id",
               "req": true,
+              "short": "Unique identifier for the joke",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "permalink",
               "req": true,
+              "short": "API permalink URL for the joke",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "permalink_html",
               "req": true,
+              "short": "HTML page permalink URL for the joke",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "question",
               "req": true,
+              "short": "The joke question/setup",
               "type": "`$STRING`"
             }
           ],
