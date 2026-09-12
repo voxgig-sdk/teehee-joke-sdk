@@ -70,12 +70,14 @@ class TeeheeJokeConfig
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'permalink',
               'req' => true,
               'short' => 'API permalink URL for the joke',
               'type' => '`$STRING`',
             ],
             [
+              'format' => 'uri',
               'name' => 'permalink_html',
               'req' => true,
               'short' => 'HTML page permalink URL for the joke',
@@ -87,6 +89,10 @@ class TeeheeJokeConfig
               'short' => 'The joke question/setup',
               'type' => '`$STRING`',
             ],
+          ],
+          'id' => [
+            'field' => 'id',
+            'name' => 'id',
           ],
           'name' => 'joke',
           'op' => [
@@ -110,9 +116,13 @@ class TeeheeJokeConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/joke/{id}',
-                  'parts' => [
-                    'joke',
-                    '{id}',
+                  'segments' => [
+                    [
+                      'lit' => 'joke',
+                    ],
+                    [
+                      'var' => 'id',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -123,19 +133,28 @@ class TeeheeJokeConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
+                  'parts' => [
+                    'joke',
+                    '{id}',
+                  ],
                 ],
                 [
                   'args' => [],
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/joke',
-                  'parts' => [
-                    'joke',
+                  'segments' => [
+                    [
+                      'lit' => 'joke',
+                    ],
                   ],
                   'select' => [],
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'joke',
                   ],
                 ],
               ],

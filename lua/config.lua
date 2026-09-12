@@ -44,12 +44,14 @@ local function make_config()
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "permalink",
             ["req"] = true,
             ["short"] = "API permalink URL for the joke",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "uri",
             ["name"] = "permalink_html",
             ["req"] = true,
             ["short"] = "HTML page permalink URL for the joke",
@@ -61,6 +63,10 @@ local function make_config()
             ["short"] = "The joke question/setup",
             ["type"] = "`$STRING`",
           },
+        },
+        ["id"] = {
+          ["field"] = "id",
+          ["name"] = "id",
         },
         ["name"] = "joke",
         ["op"] = {
@@ -84,9 +90,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/joke/{id}",
-                ["parts"] = {
-                  "joke",
-                  "{id}",
+                ["segments"] = {
+                  {
+                    ["lit"] = "joke",
+                  },
+                  {
+                    ["var"] = "id",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -97,19 +107,28 @@ local function make_config()
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
                 },
+                ["parts"] = {
+                  "joke",
+                  "{id}",
+                },
               },
               {
                 ["args"] = {},
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/joke",
-                ["parts"] = {
-                  "joke",
+                ["segments"] = {
+                  {
+                    ["lit"] = "joke",
+                  },
                 },
                 ["select"] = {},
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "joke",
                 },
               },
             },
