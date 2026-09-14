@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
+import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke-sdk'
 
 const client = new TeeheeJokeSDK()
 ```
@@ -409,7 +409,7 @@ teehee-joke/
 Import the SDK from the package root:
 
 ```ts
-import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
+import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke-sdk'
 ```
 
 ### Entity state

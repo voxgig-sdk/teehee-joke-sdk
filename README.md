@@ -105,7 +105,7 @@ local result, err = client:Joke():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
+| TypeScript | `@voxgig-sdk/teehee-joke-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
 | Python | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
 | PHP | `voxgig-sdk/teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/teehee-joke-sdk/go` | `go get github.com/voxgig-sdk/teehee-joke-sdk/go@latest` |
@@ -119,7 +119,7 @@ local result, err = client:Joke():load({ id = "test01" })
 ### TypeScript
 
 ```ts
-import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke'
+import { TeeheeJokeSDK } from '@voxgig-sdk/teehee-joke-sdk'
 
 const client = new TeeheeJokeSDK()
 
