@@ -1,12 +1,18 @@
 # TeeheeJoke SDK feature factory
 
 from teeheejoke_sdk.feature.base_feature import TeeheeJokeBaseFeature
+from teeheejoke_sdk.feature.ratelimit_feature import TeeheeJokeRatelimitFeature
+from teeheejoke_sdk.feature.retry_feature import TeeheeJokeRetryFeature
 from teeheejoke_sdk.feature.test_feature import TeeheeJokeTestFeature
+from teeheejoke_sdk.feature.timeout_feature import TeeheeJokeTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: TeeheeJokeBaseFeature(),
+    "ratelimit": lambda: TeeheeJokeRatelimitFeature(),
+    "retry": lambda: TeeheeJokeRetryFeature(),
     "test": lambda: TeeheeJokeTestFeature(),
+    "timeout": lambda: TeeheeJokeTimeoutFeature(),
 }
 
 

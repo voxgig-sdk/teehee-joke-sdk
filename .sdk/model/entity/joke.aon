@@ -62,6 +62,12 @@ main: kit: entity: joke: {
               }
             ]
           }
+          contract: {
+            id: "GET /joke/{id}"
+            json: "{\"operationId\":\"getJokeById\",\"parameters\":[{\"description\":\"The unique identifier of the joke\",\"example\":\"tv-rabbit\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"answer\":\"His ears!\",\"id\":\"tv-rabbit\",\"permalink\":\"https://teehee.dev/api/joke/tv-rabbit\",\"permalink_html\":\"https://teehee.dev/joke/tv-rabbit\",\"question\":\"What does a television have in common with a rabbit?\"},\"schema\":{\"properties\":{\"answer\":{\"description\":\"The joke answer/punchline\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the joke\",\"type\":\"string\"},\"permalink\":{\"description\":\"API permalink URL for the joke\",\"format\":\"uri\",\"type\":\"string\"},\"permalink_html\":{\"description\":\"HTML page permalink URL for the joke\",\"format\":\"uri\",\"type\":\"string\"},\"question\":{\"description\":\"The joke question/setup\",\"type\":\"string\"}},\"required\":[\"question\",\"answer\",\"id\",\"permalink\",\"permalink_html\"],\"type\":\"object\"}}},\"description\":\"Successful response with the requested joke\"},\"404\":{\"description\":\"Joke not found\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/joke/{id}"
           segments: [
@@ -83,6 +89,12 @@ main: kit: entity: joke: {
           }
         }
         {
+          contract: {
+            id: "GET /joke"
+            json: "{\"operationId\":\"getRandomJoke\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"answer\":\"His ears!\",\"id\":\"tv-rabbit\",\"permalink\":\"https://teehee.dev/api/joke/tv-rabbit\",\"permalink_html\":\"https://teehee.dev/joke/tv-rabbit\",\"question\":\"What does a television have in common with a rabbit?\"},\"schema\":{\"properties\":{\"answer\":{\"description\":\"The joke answer/punchline\",\"type\":\"string\"},\"id\":{\"description\":\"Unique identifier for the joke\",\"type\":\"string\"},\"permalink\":{\"description\":\"API permalink URL for the joke\",\"format\":\"uri\",\"type\":\"string\"},\"permalink_html\":{\"description\":\"HTML page permalink URL for the joke\",\"format\":\"uri\",\"type\":\"string\"},\"question\":{\"description\":\"The joke question/setup\",\"type\":\"string\"}},\"required\":[\"question\",\"answer\",\"id\",\"permalink\",\"permalink_html\"],\"type\":\"object\"}}},\"description\":\"Successful response with a random joke\"}},\"securitySource\":\"unspecified\"}"
+            source: "openapi3"
+            version: 1
+          }
           method: "GET"
           orig: "/joke"
           segments: [
