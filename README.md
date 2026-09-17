@@ -105,12 +105,12 @@ local result, err = client:Joke():load({ id = "test01" })
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/teehee-joke-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
-| Python | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
-| PHP | `voxgig-sdk/teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
+| TypeScript | `@voxgig-sdk/teehee-joke-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/tags) |
+| Python | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/tags) |
+| PHP | `voxgig-sdk/teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/teehee-joke-sdk/go` | `go get github.com/voxgig-sdk/teehee-joke-sdk/go@latest` |
-| Ruby | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
-| Lua | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/releases) |
+| Ruby | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/tags) |
+| Lua | `voxgig-sdk-teehee-joke` | publish pending — [install from git tag](https://github.com/voxgig-sdk/teehee-joke-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/teehee-joke-sdk/go-cli` | `go install github.com/voxgig-sdk/teehee-joke-sdk/go-cli/cmd/teehee-joke@latest` |
 | Go MCP server | `github.com/voxgig-sdk/teehee-joke-sdk/go-mcp` | `go get github.com/voxgig-sdk/teehee-joke-sdk/go-mcp@latest` |
 
