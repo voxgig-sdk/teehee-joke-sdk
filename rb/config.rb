@@ -99,35 +99,40 @@ module TeeheeJokeConfig
           "fields" => [
             {
               "name" => "answer",
+              "title" => "Answer",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The joke answer/punchline",
-              "type" => "`$STRING`",
             },
             {
               "name" => "id",
+              "title" => "Id",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "Unique identifier for the joke",
-              "type" => "`$STRING`",
             },
             {
-              "format" => "uri",
               "name" => "permalink",
+              "title" => "Permalink",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "API permalink URL for the joke",
-              "type" => "`$STRING`",
+              "format" => "uri",
             },
             {
-              "format" => "uri",
               "name" => "permalink_html",
+              "title" => "Permalink Html",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "HTML page permalink URL for the joke",
-              "type" => "`$STRING`",
+              "format" => "uri",
             },
             {
               "name" => "question",
+              "title" => "Question",
+              "type" => "`$STRING`",
               "req" => true,
               "short" => "The joke question/setup",
-              "type" => "`$STRING`",
             },
           ],
           "id" => {
@@ -141,18 +146,6 @@ module TeeheeJokeConfig
               "name" => "load",
               "points" => [
                 {
-                  "args" => {
-                    "params" => [
-                      {
-                        "example" => "tv-rabbit",
-                        "kind" => "param",
-                        "name" => "id",
-                        "orig" => "id",
-                        "reqd" => true,
-                        "type" => "`$STRING`",
-                      },
-                    ],
-                  },
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/joke/{id}",
@@ -164,22 +157,34 @@ module TeeheeJokeConfig
                       "var" => "id",
                     },
                   ],
+                  "parts" => [
+                    "joke",
+                    "{id}",
+                  ],
+                  "rename" => {},
+                  "transform" => {
+                    "req" => "`reqdata`",
+                    "res" => "`body`",
+                  },
+                  "args" => {
+                    "params" => [
+                      {
+                        "name" => "id",
+                        "orig" => "id",
+                        "type" => "`$STRING`",
+                        "kind" => "param",
+                        "reqd" => true,
+                        "example" => "tv-rabbit",
+                      },
+                    ],
+                  },
                   "select" => {
                     "exist" => [
                       "id",
                     ],
                   },
-                  "transform" => {
-                    "req" => "`reqdata`",
-                    "res" => "`body`",
-                  },
-                  "parts" => [
-                    "joke",
-                    "{id}",
-                  ],
                 },
                 {
-                  "args" => {},
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/joke",
@@ -188,14 +193,16 @@ module TeeheeJokeConfig
                       "lit" => "joke",
                     },
                   ],
-                  "select" => {},
+                  "parts" => [
+                    "joke",
+                  ],
+                  "rename" => {},
                   "transform" => {
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
-                  "parts" => [
-                    "joke",
-                  ],
+                  "args" => {},
+                  "select" => {},
                 },
               ],
             },

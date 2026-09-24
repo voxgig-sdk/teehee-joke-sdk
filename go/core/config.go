@@ -91,35 +91,40 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "answer",
+						"title": "Answer",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The joke answer/punchline",
-						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "id",
+						"title": "Id",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "Unique identifier for the joke",
-						"type": "`$STRING`",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "permalink",
+						"title": "Permalink",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "API permalink URL for the joke",
-						"type": "`$STRING`",
+						"format": "uri",
 					},
 					map[string]any{
-						"format": "uri",
 						"name": "permalink_html",
+						"title": "Permalink Html",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "HTML page permalink URL for the joke",
-						"type": "`$STRING`",
+						"format": "uri",
 					},
 					map[string]any{
 						"name": "question",
+						"title": "Question",
+						"type": "`$STRING`",
 						"req": true,
 						"short": "The joke question/setup",
-						"type": "`$STRING`",
 					},
 				},
 				"id": map[string]any{
@@ -133,18 +138,6 @@ func MakeConfig() map[string]any {
 						"name": "load",
 						"points": []any{
 							map[string]any{
-								"args": map[string]any{
-									"params": []any{
-										map[string]any{
-											"example": "tv-rabbit",
-											"kind": "param",
-											"name": "id",
-											"orig": "id",
-											"reqd": true,
-											"type": "`$STRING`",
-										},
-									},
-								},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/joke/{id}",
@@ -156,22 +149,34 @@ func MakeConfig() map[string]any {
 										"var": "id",
 									},
 								},
+								"parts": []any{
+									"joke",
+									"{id}",
+								},
+								"rename": map[string]any{},
+								"transform": map[string]any{
+									"req": "`reqdata`",
+									"res": "`body`",
+								},
+								"args": map[string]any{
+									"params": []any{
+										map[string]any{
+											"name": "id",
+											"orig": "id",
+											"type": "`$STRING`",
+											"kind": "param",
+											"reqd": true,
+											"example": "tv-rabbit",
+										},
+									},
+								},
 								"select": map[string]any{
 									"exist": []any{
 										"id",
 									},
 								},
-								"transform": map[string]any{
-									"req": "`reqdata`",
-									"res": "`body`",
-								},
-								"parts": []any{
-									"joke",
-									"{id}",
-								},
 							},
 							map[string]any{
-								"args": map[string]any{},
 								"kind": "http",
 								"method": "GET",
 								"orig": "/joke",
@@ -180,14 +185,16 @@ func MakeConfig() map[string]any {
 										"lit": "joke",
 									},
 								},
-								"select": map[string]any{},
+								"parts": []any{
+									"joke",
+								},
+								"rename": map[string]any{},
 								"transform": map[string]any{
 									"req": "`reqdata`",
 									"res": "`body`",
 								},
-								"parts": []any{
-									"joke",
-								},
+								"args": map[string]any{},
+								"select": map[string]any{},
 							},
 						},
 					},

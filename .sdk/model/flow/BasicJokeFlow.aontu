@@ -1,0 +1,28 @@
+# BasicJokeFlow
+
+main: kit: flow: BasicJokeFlow:
+{
+  entity: "joke",
+  kind: "basic",
+  name: "BasicJokeFlow",
+  step: [
+    {
+      i: {
+        ref: "joke_ref01",
+        srcdatavar: "joke_ref01_data",
+        suffix: "_dt0"
+      }
+
+      o: "load",
+      v: [
+        {
+          apply: "TextFieldMark",
+          def: {
+            mark: "Mark01-joke_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicJokeFlow"
+}

@@ -116,35 +116,40 @@ def make_config():
         "fields": [
           {
             "name": "answer",
+            "title": "Answer",
+            "type": "`$STRING`",
             "req": True,
             "short": "The joke answer/punchline",
-            "type": "`$STRING`",
           },
           {
             "name": "id",
+            "title": "Id",
+            "type": "`$STRING`",
             "req": True,
             "short": "Unique identifier for the joke",
-            "type": "`$STRING`",
           },
           {
-            "format": "uri",
             "name": "permalink",
+            "title": "Permalink",
+            "type": "`$STRING`",
             "req": True,
             "short": "API permalink URL for the joke",
-            "type": "`$STRING`",
+            "format": "uri",
           },
           {
-            "format": "uri",
             "name": "permalink_html",
+            "title": "Permalink Html",
+            "type": "`$STRING`",
             "req": True,
             "short": "HTML page permalink URL for the joke",
-            "type": "`$STRING`",
+            "format": "uri",
           },
           {
             "name": "question",
+            "title": "Question",
+            "type": "`$STRING`",
             "req": True,
             "short": "The joke question/setup",
-            "type": "`$STRING`",
           },
         ],
         "id": {
@@ -158,18 +163,6 @@ def make_config():
             "name": "load",
             "points": [
               {
-                "args": {
-                  "params": [
-                    {
-                      "example": "tv-rabbit",
-                      "kind": "param",
-                      "name": "id",
-                      "orig": "id",
-                      "reqd": True,
-                      "type": "`$STRING`",
-                    },
-                  ],
-                },
                 "kind": "http",
                 "method": "GET",
                 "orig": "/joke/{id}",
@@ -181,22 +174,34 @@ def make_config():
                     "var": "id",
                   },
                 ],
+                "parts": [
+                  "joke",
+                  "{id}",
+                ],
+                "rename": {},
+                "transform": {
+                  "req": "`reqdata`",
+                  "res": "`body`",
+                },
+                "args": {
+                  "params": [
+                    {
+                      "name": "id",
+                      "orig": "id",
+                      "type": "`$STRING`",
+                      "kind": "param",
+                      "reqd": True,
+                      "example": "tv-rabbit",
+                    },
+                  ],
+                },
                 "select": {
                   "exist": [
                     "id",
                   ],
                 },
-                "transform": {
-                  "req": "`reqdata`",
-                  "res": "`body`",
-                },
-                "parts": [
-                  "joke",
-                  "{id}",
-                ],
               },
               {
-                "args": {},
                 "kind": "http",
                 "method": "GET",
                 "orig": "/joke",
@@ -205,14 +210,16 @@ def make_config():
                     "lit": "joke",
                   },
                 ],
-                "select": {},
+                "parts": [
+                  "joke",
+                ],
+                "rename": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body`",
                 },
-                "parts": [
-                  "joke",
-                ],
+                "args": {},
+                "select": {},
               },
             ],
           },

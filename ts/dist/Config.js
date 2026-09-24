@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -114,35 +107,40 @@ class Config {
             "fields": [
                 {
                     "name": "answer",
+                    "title": "Answer",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "The joke answer/punchline",
-                    "type": "`$STRING`"
+                    "short": "The joke answer/punchline"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "Unique identifier for the joke",
-                    "type": "`$STRING`"
+                    "short": "Unique identifier for the joke"
                 },
                 {
-                    "format": "uri",
                     "name": "permalink",
+                    "title": "Permalink",
+                    "type": "`$STRING`",
                     "req": true,
                     "short": "API permalink URL for the joke",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
-                    "format": "uri",
                     "name": "permalink_html",
+                    "title": "Permalink Html",
+                    "type": "`$STRING`",
                     "req": true,
                     "short": "HTML page permalink URL for the joke",
-                    "type": "`$STRING`"
+                    "format": "uri"
                 },
                 {
                     "name": "question",
+                    "title": "Question",
+                    "type": "`$STRING`",
                     "req": true,
-                    "short": "The joke question/setup",
-                    "type": "`$STRING`"
+                    "short": "The joke question/setup"
                 }
             ],
             "id": {
@@ -156,18 +154,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "example": "tv-rabbit",
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/joke/{id}",
@@ -179,22 +165,34 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "joke",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "joke",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true,
+                                        "example": "tv-rabbit"
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         },
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/joke",
@@ -203,14 +201,16 @@ class Config {
                                     "lit": "joke"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "joke"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body`"
                             },
-                            "parts": [
-                                "joke"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }

@@ -1,0 +1,119 @@
+# Entity: joke
+
+main: kit: entity: joke: {
+
+  alias: field: {}
+
+  fields: {
+    answer: {
+      h: "Answer"
+      n: "answer"
+      r: true
+      sh: "The joke answer/punchline"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: true
+      sh: "Unique identifier for the joke"
+      t: "`$STRING`"
+    }
+    permalink: {
+      fo: "uri"
+      h: "Permalink"
+      n: "permalink"
+      r: true
+      sh: "API permalink URL for the joke"
+      t: "`$STRING`"
+    }
+    permalink_html: {
+      fo: "uri"
+      h: "Permalink Html"
+      n: "permalink_html"
+      r: true
+      sh: "HTML page permalink URL for the joke"
+      t: "`$STRING`"
+    }
+    question: {
+      h: "Question"
+      n: "question"
+      r: true
+      sh: "The joke question/setup"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "joke"
+  op: {
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /joke/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                ex: "tv-rabbit"
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/joke/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "joke"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+        {
+          co: {
+            id: "GET /joke"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/joke"
+          s: [
+            {
+              lit: "joke"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
