@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 TeeheeJokeUtility::setRegistrar(function (TeeheeJokeUtility $u): void {
     $u->clean = [TeeheeJokeClean::class, 'call'];
+    $u->clean_add = [TeeheeJokeClean::class, 'add'];
+    $u->clean_explain = [TeeheeJokeDone::class, 'clean_explain'];
     $u->done = [TeeheeJokeDone::class, 'call'];
     $u->make_error = [TeeheeJokeMakeError::class, 'call'];
     $u->feature_add = [TeeheeJokeFeatureAdd::class, 'call'];

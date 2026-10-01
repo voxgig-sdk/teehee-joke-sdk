@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 TeeheeJokeUtility.registrar = ->(u) {
   u.clean = TeeheeJokeUtilities::Clean
+  u.clean_add = TeeheeJokeUtilities::CleanAdd
+  u.clean_explain = TeeheeJokeUtilities::CleanExplain
   u.done = TeeheeJokeUtilities::Done
   u.make_error = TeeheeJokeUtilities::MakeError
   u.feature_add = TeeheeJokeUtilities::FeatureAdd
