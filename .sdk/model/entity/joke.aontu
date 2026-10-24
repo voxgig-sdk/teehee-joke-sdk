@@ -79,6 +79,10 @@ main: kit: entity: joke: {
               "id"
             ]
           }
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "joke"
@@ -100,6 +104,10 @@ main: kit: entity: joke: {
           }
           m: "GET"
           o: "/joke"
+          rs: {
+            kind: "json"
+            media: "application/json"
+          }
           s: [
             {
               lit: "joke"

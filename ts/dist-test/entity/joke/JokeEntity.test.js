@@ -54,6 +54,14 @@ const utility_1 = require("../../utility");
         const ent = testsdk.Joke();
         (0, node_assert_1.default)(null != ent);
     });
+    (0, node_test_1.test)('validate', async (t) => {
+        if (null == __1.config.feature?.validate) {
+            t.skip('feature not present in this SDK: validate');
+            return;
+        }
+        const client = __1.TeeheeJokeSDK.test(undefined, { feature: { validate: { active: true } } });
+        await node_assert_1.default.rejects(client.Joke().load({ "id": 1 }), (err) => 'validate_failed' === err.code);
+    });
     (0, node_test_1.test)('basic', async (t) => {
         const live = 'TRUE' === process.env.TEEHEE_JOKE_TEST_LIVE;
         for (const op of ['load']) {
@@ -62,7 +70,7 @@ const utility_1 = require("../../utility");
         }
         const setup = basicSetup();
         if (setup.live) {
-            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "answer": { "a": true, "h": "Answer", "n": "answer", "r": true, "sh": "The joke answer/punchline", "t": "`$STRING`", "key$": "answer", "index$": 0 }, "id": { "a": true, "h": "Id", "n": "id", "r": true, "sh": "Unique identifier for the joke", "t": "`$STRING`", "key$": "id", "index$": 1 }, "permalink": { "a": true, "fo": "uri", "h": "Permalink", "n": "permalink", "r": true, "sh": "API permalink URL for the joke", "t": "`$STRING`", "key$": "permalink", "index$": 2 }, "permalink_html": { "a": true, "fo": "uri", "h": "Permalink Html", "n": "permalink_html", "r": true, "sh": "HTML page permalink URL for the joke", "t": "`$STRING`", "key$": "permalink_html", "index$": 3 }, "question": { "a": true, "h": "Question", "n": "question", "r": true, "sh": "The joke question/setup", "t": "`$STRING`", "key$": "question", "index$": 4 } }, "id": { "field": "id", "name": "id" }, "name": "joke", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /joke/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "tv-rabbit", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/joke/{id}", "q": { "exist": ["id"] }, "r": {}, "s": [{ "lit": "joke" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /joke", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/joke", "q": {}, "r": {}, "s": [{ "lit": "joke" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "joke", "name__orig": "joke", "Name": "Joke", "name_": "joke", "name-": "joke", "NAME": "JOKE", "index$": 0 }, { "active": true, "entity": "joke", "key$": "BasicJokeFlow", "kind": "basic", "name": "BasicJokeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "joke_ref01", "srcdatavar": "joke_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-joke_ref01" } }], "index$": 0 }] }, 'Joke', { "GET /joke/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "The unique identifier of the joke", "required": true, "schema": { "type": "string" }, "example": "tv-rabbit", "index$": 0 }] }, "GET /joke": { "protocol": "http", "parameters": [] } });
+            return (0, live_entity_1.runLiveEntity)(setup, { "active": true, "alias": { "field": {} }, "fields": { "answer": { "a": true, "h": "Answer", "n": "answer", "r": true, "sh": "The joke answer/punchline", "t": "`$STRING`", "key$": "answer", "index$": 0 }, "id": { "a": true, "h": "Id", "n": "id", "r": true, "sh": "Unique identifier for the joke", "t": "`$STRING`", "key$": "id", "index$": 1 }, "permalink": { "a": true, "fo": "uri", "h": "Permalink", "n": "permalink", "r": true, "sh": "API permalink URL for the joke", "t": "`$STRING`", "key$": "permalink", "index$": 2 }, "permalink_html": { "a": true, "fo": "uri", "h": "Permalink Html", "n": "permalink_html", "r": true, "sh": "HTML page permalink URL for the joke", "t": "`$STRING`", "key$": "permalink_html", "index$": 3 }, "question": { "a": true, "h": "Question", "n": "question", "r": true, "sh": "The joke question/setup", "t": "`$STRING`", "key$": "question", "index$": 4 } }, "id": { "field": "id", "name": "id" }, "name": "joke", "op": { "load": { "input": "data", "name": "load", "points": [{ "a": true, "co": { "id": "GET /joke/{id}", "source": "openapi3", "version": 2 }, "g": { "params": [{ "a": true, "ex": "tv-rabbit", "k": "param", "n": "id", "or": "id", "r": true, "t": "`$STRING`", "index$": 0 }] }, "k": "http", "m": "GET", "o": "/joke/{id}", "q": { "exist": ["id"] }, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "joke" }, { "var": "id" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 0 }, { "a": true, "co": { "id": "GET /joke", "source": "openapi3", "version": 2 }, "g": {}, "k": "http", "m": "GET", "o": "/joke", "q": {}, "r": {}, "rs": { "kind": "json", "media": "application/json" }, "s": [{ "lit": "joke" }], "t": { "req": "`reqdata`", "res": "`body`" }, "index$": 1 }], "key$": "load" } }, "relations": { "ancestors": [] }, "key$": "joke", "name__orig": "joke", "Name": "Joke", "name_": "joke", "name-": "joke", "NAME": "JOKE", "index$": 0 }, { "active": true, "entity": "joke", "key$": "BasicJokeFlow", "kind": "basic", "name": "BasicJokeFlow", "param": {}, "step": [{ "a": true, "d": {}, "i": { "ref": "joke_ref01", "srcdatavar": "joke_ref01_data", "suffix": "_dt0" }, "m": {}, "o": "load", "s": [], "v": [{ "apply": "TextFieldMark", "def": { "mark": "Mark01-joke_ref01" } }], "index$": 0 }] }, 'Joke', { "GET /joke/{id}": { "protocol": "http", "parameters": [{ "name": "id", "in": "path", "description": "The unique identifier of the joke", "required": true, "schema": { "type": "string" }, "example": "tv-rabbit", "index$": 0 }] }, "GET /joke": { "protocol": "http", "parameters": [] } }, { strict: LIVE_STRICT, t });
         }
         const client = setup.client;
         const struct = setup.struct;
@@ -77,6 +85,11 @@ const utility_1 = require("../../utility");
         (0, node_assert_1.default)(joke_ref01_data_dt0.id === joke_ref01_data.id);
     });
 });
+// main.kit.test.live.strict is true (the default is true): a live
+// request that fails, or a live test missing an input it needs,
+// fails the test.
+// An account with no record for a test to read skips it either way.
+const LIVE_STRICT = true;
 function basicSetup(extra) {
     // TODO: fix test def options
     const options = {}; // null

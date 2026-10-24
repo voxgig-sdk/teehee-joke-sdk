@@ -350,6 +350,7 @@ initialiser
 [Rr][Ee][Ss][Pp][Oo][Nn][Ss][Ee]
 [Rr][Ee][Qq][Uu][Ee][Ss][Tt][Ee][Dd]
 [Hh][Tt][Mm][Ll]
+[Pp][Ee][Rr][Mm][Aa][Ll][Ii][Nn][Kk]_[Hh][Tt][Mm][Ll]
 [Nn][Oo][Tt]
 [Ff][Oo][Uu][Nn][Dd]
 [Uu][Nn][Ii][Qq][Uu][Ee]

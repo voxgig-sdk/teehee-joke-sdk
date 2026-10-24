@@ -93,6 +93,7 @@ class TeeheeJokeConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -197,6 +198,10 @@ class TeeheeJokeConfig
                       'id',
                     ],
                   ],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
                 [
                   'kind' => 'http',
@@ -217,6 +222,10 @@ class TeeheeJokeConfig
                   ],
                   'args' => [],
                   'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
+                  ],
                 ],
               ],
             ],

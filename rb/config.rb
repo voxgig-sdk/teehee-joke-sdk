@@ -79,6 +79,7 @@ module TeeheeJokeConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -183,6 +184,10 @@ module TeeheeJokeConfig
                       "id",
                     ],
                   },
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
                 {
                   "kind" => "http",
@@ -203,6 +208,10 @@ module TeeheeJokeConfig
                   },
                   "args" => {},
                   "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
+                  },
                 },
               ],
             },

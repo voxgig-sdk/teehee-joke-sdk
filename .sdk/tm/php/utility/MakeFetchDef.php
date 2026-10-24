@@ -4,6 +4,7 @@ declare(strict_types=1);
 // TeeheeJoke SDK utility: make_fetch_def
 
 require_once __DIR__ . '/../core/Result.php';
+require_once __DIR__ . '/Media.php';
 
 class TeeheeJokeMakeFetchDef
 {
@@ -28,7 +29,7 @@ class TeeheeJokeMakeFetchDef
 
         $fetchdef = ['url' => $url, 'method' => $spec->method, 'headers' => $spec->headers];
         if ($spec->body !== null) {
-            $fetchdef['body'] = is_array($spec->body) ? \Voxgig\Struct\Struct::jsonify($spec->body) : $spec->body;
+            $fetchdef['body'] = TeeheeJokeMedia::requestBody($ctx->point, $spec->body);
         }
 
         return [$fetchdef, null];

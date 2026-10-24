@@ -3,5 +3,18 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "API permalink URL for the joke",
+      "HTML page permalink URL for the joke",
+      "Production server",
+      "Successful response with a random joke",
+      "Successful response with the requested joke",
+      "The Teehee.dev API provides a simple way to retrieve random jokes curated by Jesse G. Donat. Users can make a GET request to receive a joke along with its ID, question, answer, and a permalink for reference. All jokes are in Question/Answer format and are universally safe for work and generally family friendly.",
+      "The joke answer/punchline",
+      "The joke question/setup",
+      "Unique identifier for the joke"
+    ]
+  }
 }
